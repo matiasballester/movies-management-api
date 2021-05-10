@@ -116,7 +116,7 @@ public class MoviesManagementController {
 
     @Operation(summary = "Update movie", security = @SecurityRequirement(name = "bearerAuth"))
     @PutMapping(value = "/movies/{movie-id}")
-    public ResponseEntity updateMovie(@PathVariable(required = false, name = "movie-id") Long id, @NotNull @Validated @RequestBody MovieDTO movieDTO) {
+    public ResponseEntity updateMovie(@PathVariable(required = false, name = "movie-id") Long id, @NotNull @RequestBody MovieDTO movieDTO) {
         try {
             Movie movie = movieManagementService.updateMovie(id, movieDTO);
             ResponseDTO responseDTO = ResponseDTO.builder().objectId(movie.getMovieId()).message("Movie successfully updated").build();
