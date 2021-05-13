@@ -19,10 +19,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<org.springframework.boot.version>2.4.0</org.springframework.boot.version>
-		<org.springdoc.version>1.5.2</org.springdoc.version>
+		<org.springdoc.version>1.5.8</org.springdoc.version>
 		<org.webjars.version>0.30</org.webjars.version>
 		<org.springframework.security.version>5.4.4</org.springframework.security.version>
-		<org.projectlombok.version>1.18.8</org.projectlombok.version>
+		<org.projectlombok.version>1.18.20</org.projectlombok.version>
 		<org.modelmapper.version>2.3.5</org.modelmapper.version>
 		<com.fasterxml.jackson.core.version>2.11.1</com.fasterxml.jackson.core.version>
 		<io.jsonwebtoken.version>0.9.1</io.jsonwebtoken.version>
@@ -156,7 +156,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.8</version>
+							<version>${org.projectlombok.version}</version>
 						</path>
 						<!-- This is needed when using Lombok 1.18.16 and above -->
 						<path>
