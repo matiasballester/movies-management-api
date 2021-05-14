@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 public interface MovieManagementService {
     Page<Movie> getMovies(Pageable pageable);
     Page<Movie> getMoviesByGenre(String description, Pageable pageable);
+    Page<Movie> getMoviesByGenre(Integer genreId, Pageable pageable);
     Movie getMovie(Long id);
     void deleteMovie(Long id) throws Exception;
     Movie createMovie(CreateMovieDTO movie);

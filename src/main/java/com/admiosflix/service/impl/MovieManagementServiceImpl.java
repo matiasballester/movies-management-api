@@ -17,9 +17,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MovieManagementServiceImpl implements MovieManagementService {
-    @Autowired private MovieRepository movieRepository;
-    @Autowired private GenreRepository genreRepository;
-
+    @Autowired
+    private MovieRepository movieRepository;
+    @Autowired
+    private GenreRepository genreRepository;
     @Autowired
     private ModelMapper modelMapper;
 
@@ -31,6 +32,11 @@ public class MovieManagementServiceImpl implements MovieManagementService {
     @Override
     public Page<Movie> getMoviesByGenre(String description, Pageable pageable) {
         return movieRepository.findByGenreDescriptionContainingIgnoreCase(description, pageable);
+    }
+
+    @Override
+    public Page<Movie> getMoviesByGenre(Integer genreId, Pageable pageable) {
+        return movieRepository.findByGenreId(genreId, pageable);
     }
 
     @Override

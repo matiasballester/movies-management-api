@@ -66,9 +66,9 @@ public class MoviesManagementController {
         }
     }
 
-    @GetMapping(value = "/movies/genre/{genre-description}")
+    @GetMapping(value = "/movies/genre/{genre-id}")
     @Parameters({
-            @Parameter(name = "genre-description", description = "genre description",
+            @Parameter(name = "genre-id", description = "genre id",
                     in = ParameterIn.PATH, schema = @Schema(type = "string")),
             @Parameter(name = "page", description = "page number",
                     in = ParameterIn.QUERY, schema = @Schema(type = "integer")),
@@ -77,9 +77,9 @@ public class MoviesManagementController {
             @Parameter(name = "sort", description = "sort specification",
                     in = ParameterIn.QUERY, schema = @Schema(type = "string"))
     })
-    public ResponseEntity findMoviesByGenre(@PathVariable(name = "genre-description") String genreDescription, @Parameter(hidden = true) @PageableDefault(sort = "title", direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity findMoviesByGenre(@PathVariable(name = "genre-id") Integer genreId, @Parameter(hidden = true) @PageableDefault(sort = "title", direction = Sort.Direction.ASC) Pageable pageable) {
         try {
-            Page<Movie> pageMovie = movieManagementService.getMoviesByGenre(genreDescription, pageable);
+            Page<Movie> pageMovie = movieManagementService.getMoviesByGenre(genreId, pageable);
             Page<MovieDTO> pageMovieDTO = pageMovie.map(movie -> modelMapper.map(movie, MovieDTO.class));
             return ResponseEntity.status(HttpStatus.OK).body(pageMovieDTO);
         } catch (Exception e) {
